@@ -1,0 +1,28 @@
+{
+  "name": "svr-test-task",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.7.8",
+    "json3": "~3.3.2",
+    "es5-shim": "~4.5.13",
+    "bootstrap": "~3.1.1",
+    "angular-resource": "~1.7.8",
+    "angular-cookies": "~1.7.8",
+    "angular-sanitize": "~1.7.8",
+    "angular-bootstrap": "~0.13.0",
+    "font-awesome": ">=4.7.0",
+    "lodash": "~3.10.1",
+    "angular-socket-io": "~0.7.0",
+    "angular-ui-router": "~1.0.22",
+    "angular-validation-match": "~1.9.0",
+    "ui-select": "angular-ui-select#^0.16.1",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "angular-material": "^1.1.19"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.7.8"
+  },
+  "resolutions": {
+    "angular": "1.7.8"
+  }
+}
