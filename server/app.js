@@ -9,8 +9,18 @@ import config from './config/environment';
 import http from 'http';
 
 // Setup server
-var app = express();
-var server = http.createServer(app);
+const app = express();
+const server = http.createServer(app);
+
+//Add server cors
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header('access-Control-Allow-Origin', '*');
+  next();
+});
+
+
 require('./config/express')(app);
 require('./routes')(app);
 
@@ -22,6 +32,5 @@ function startServer() {
 }
 
 setImmediate(startServer);
-
 // Expose app
 exports = module.exports = app;
