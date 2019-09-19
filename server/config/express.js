@@ -57,10 +57,10 @@ module.exports = function(app) {
     }));
   }
 
-  app.set('appPath', path.join(config.root, 'client'));
+  app.set('appPath', path.join(config.root, 'dist'));
 
   if ('production' === env) {
-    app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
+    app.use(favicon(path.join(config.root, 'dist', 'favicon.ico')));
     app.use(express.static(app.get('appPath')));
     app.use(morgan('dev'));
   }
