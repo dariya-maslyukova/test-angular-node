@@ -20,6 +20,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use('/api/things', require('./routes/things'));
 
 require('./config/express')(app);
 require('./routes')(app);

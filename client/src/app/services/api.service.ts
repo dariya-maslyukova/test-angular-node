@@ -17,6 +17,10 @@ export class ApiService {
     return this.httpClient.get<T>(environment.apiUrl + url, { params });
   }
 
+  post<T>(url: string, body?: any): Observable<T> {
+    return this.httpClient.post<T>(environment.apiUrl + url, body);
+  }
+
   put<T>(url: string, body?: any): Observable<T> {
     return this.httpClient.patch<T>(environment.apiUrl + url, body);
   }

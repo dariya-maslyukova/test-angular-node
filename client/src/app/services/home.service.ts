@@ -12,13 +12,18 @@ export class HomeService {
   constructor(private as: ApiService) {
   }
 
-  getHomePage(): Observable<any[]> {
-    return this.getHome();
+  getHomePageById(id: string): Observable<any> {
+    const query = {
+      query: { code: id },
+    };
+
+    return this.getHome(query);
   }
 
-  private getHome(): Observable<any[]> {
-    return this.as.get<any[]>(
-      CONFIG.apiUrls.Home
+  private getHome(query): Observable<any> {
+    return this.as.get<any>(
+      CONFIG.apiUrls.Home,
+      query.query
     );
   }
 

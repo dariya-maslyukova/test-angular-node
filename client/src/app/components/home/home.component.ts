@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.hs
-      .getHomePage()
+      .getHomePageById('01130549')
       .pipe(
         takeUntil(this.destroyedSubject),
         finalize(() => {
