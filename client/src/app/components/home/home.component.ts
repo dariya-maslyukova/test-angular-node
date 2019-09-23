@@ -64,10 +64,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     return publ.length > 0;
   }
 
-  onSort(event): void {
-    const sortPropDir = event.sorts[0];
-  }
-
   ngOnDestroy(): void {
     this.destroyedSubject.next();
     this.destroyedSubject.complete();
