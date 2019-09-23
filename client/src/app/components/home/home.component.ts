@@ -35,21 +35,23 @@ export class HomeComponent implements OnInit, OnDestroy {
       )
       .subscribe(response => {
         this.response = response;
+
+        if (this.isPublicOffering()) {
+          this.hs
+            .getPropositionsById('01130549')
+            .pipe(
+              takeUntil(this.destroyedSubject),
+              finalize(() => {
+                this.cdr.markForCheck();
+              })
+            )
+            .subscribe(response => {
+              this.propositions = response;
+            });
+        }
       });
 
-    if (this.isPublicOffering()) {
-      this.hs
-        .getPropositionsById('01130549')
-        .pipe(
-          takeUntil(this.destroyedSubject),
-          finalize(() => {
-            this.cdr.markForCheck();
-          })
-        )
-        .subscribe(response => {
-          this.propositions = response;
-        });
-    }
+
   }
 
   get founders(): any[] {

@@ -22,7 +22,7 @@ export class HomeService {
 
   getPropositionsById(id: string): Observable<any> {
     const query = {
-      query: { code: id },
+      query: { sOKPO: id },
     };
 
     return this.getPropositions(query);
