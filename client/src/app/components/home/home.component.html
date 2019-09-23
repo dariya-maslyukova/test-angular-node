@@ -1,1 +1,82 @@
-<app-navbar></app-navbar>
+<div *ngIf="response">
+  <div class="code">Код за ЄДРПОУ: {{ response.oCommonInfoBot.code }}</div>
+  <table class="app-table">
+    <tr>
+      <th class="color-cell"></th>
+      <th class="color-cell">Відомості з ЄДР</th>
+      <th class="color-cell">Відомості з СВР</th>
+    </tr>
+    <tr>
+      <td class="color-cell">Назва</td>
+      <td class="color-cell"><strong>{{ response.oCommonInfoBot.full_name }}</strong></td>
+      <td class="color-cell"><strong>{{ response.oCommonInfo.sNameFull }}</strong></td>
+    </tr>
+    <tr>
+      <td class="color-cell">Керівник юр.особи</td>
+      <td class="color-cell">{{ response.oCommonInfoBot.ceo_name }}</td>
+      <td class="color-cell">{{ response.oCommonInfo.oCEO.sCeoName }}</td>
+    </tr>
+    <tr (click)="toggleLink = !toggleLink" class="toggle-link" [ngClass]="{'toggle-link--open' : toggleLink}">
+      <td width="300">Статутний капітал <img src="assets/images/arrow_right.svg" alt=""></td>
+      <td>{{ response.oCommonInfoBot.totalcapital }}</td>
+      <td>{{ response.oCommonInfo.nSizeCharterCapital }}</td>
+    </tr>
+    <tr *ngIf="toggleLink" class="toggle-link" [ngClass]="{'toggle-link--open' : toggleLink}">
+      <td>Засновники</td>
+      <ng-container *ngFor="let founder of founders">
+        <td>{{ founder.title }}</td>
+        <td> {{ founder.capital }}</td>
+      </ng-container>
+    </tr>
+    <tr>
+      <td>Місцезнаходження</td>
+      <td>{{ response.oCommonInfoBot.location }}</td>
+      <td>{{ response.oCommonInfo.Address }}</td>
+    </tr>
+    <tr>
+      <td>Тимчасове місцезнаходження</td>
+      <td></td>
+      <td>{{ response.oCommonInfo.Temporary_Address }}</td>
+    </tr>
+    <tr>
+      <td>Адреса електронної пошти</td>
+      <td></td>
+      <td>{{ response.oCommonInfo.Email }}</td>
+    </tr>
+    <tr>
+      <td>Телефон</td>
+      <td></td>
+      <td>{{ response.oCommonInfo.Phone }}</td>
+    </tr>
+    <tr>
+      <td>Веб-сайт</td>
+      <td></td>
+      <td>{{ response.oCommonInfo.www }}</td>
+    </tr>
+    <tr>
+      <td>Дата державної реєстрації</td>
+      <td></td>
+      <td>{{ response.oCommonInfo.sDateRegistrationEDR | dateFormat }}</td>
+    </tr>
+    <tr>
+      <td>Статус юр.особи</td>
+      <td>{{ response.oCommonInfoBot.status }}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Основний КВЕД</td>
+      <td>{{ response.oCommonInfoBot.activities }}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Дата синхронізації даних</td>
+      <td>{{ response.oCommonInfoBot.database_date | dateFormat }}</td>
+      <td></td>
+    </tr>
+  </table>
+
+  <section class="propositions">
+    <span>Публічні пропозиції</span>
+    <img src="assets/images/arrow_right.svg" alt="">
+  </section>
+</div>

@@ -19,11 +19,11 @@ html {
 
 body {
   overflow-x: hidden;
-  font-family: $f-primary;
+  font-family: $f-main;
   font-weight: 400;
   font-size: 1rem;
-  color: $black;
-  background-color: $white;
+  color: #333;
+  background-color: $alto;
 }
 
 
@@ -34,138 +34,15 @@ a{
     color: inherit;
     text-decoration: none;
   }
+}
 
-  &.link {
-    padding-bottom: 2px;
-    border-bottom: 1px solid $black;
+.main-layout {
+  background: $alto;
+  height: 100%;
+  padding: 25px 50px;
 
-    &:hover {
-      color: $valentino;
-      border-color: $valentino;
-    }
+  &__content {
+    background: $white;
+    padding: 25px 50px;
   }
-}
-
-h1, h3, h4, h5{
-  font-family: $f-primary;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-h1 {
-  font-weight: 600;
-  font-size: rem(24);
-  letter-spacing: -0.5px;
-}
-
-h2{
-  font-size: rem(18);
-  font-family: $f-primary;
-  font-weight: 600;
-  margin-bottom: 16px;
-  letter-spacing: -0.2px;
-}
-
-h3{
-  font-size: rem(30.7);
-}
-
-h4{
-  font-size: rem(24);
-  &.large{
-    font-size: rem(26);
-  }
-}
-
-h5{
-  font-size: rem(20);
-}
-
-h6 {
-  margin-bottom: rem(25);
-  font-size: 15px;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-b, strong {
-  font-weight: 600;
-}
-
-svg-icon {
-  display: inline-block;
-
-  svg {
-    display: block;
-    height: 18px;
-
-    path,
-    polygon {
-      transition: 0.2s linear;
-    }
-  }
-}
-
-.large-bold-text{
-  margin-left: -2.5px;
-  font-size: rem(72.65);
-  font-weight: 600;
-  line-height: rem(55);
-  text-transform: uppercase;
-  font-family: $f-primary;
-}
-
-.medium-text{
-  font-size: rem(51.28);
-  font-weight: 500;
-  text-transform: uppercase;
-  font-family: $f-primary;
-}
-
-.medium-large-text{
-  font-size: rem(60.22);
-  font-weight: 500;
-  text-transform: uppercase;
-  font-family: $f-primary;
-}
-
-.letter-space{
-  letter-spacing: -1.5px;
-}
-
-.letter-space-m{
-  letter-spacing: -0.7px;
-}
-
-.small-text{
-  font-size: rem(28);
-}
-
-.thin-text{
-  font-weight: 300;
-}
-
-.text-center{
-  text-align: center;
-}
-
-.text-right{
-  text-align: right;
-}
-
-.text-left{
-  text-align: left;
-}
-
-.text-uppercase{
-  text-transform: uppercase;
-}
-
-.border-column-right {
-  border-right: 1px solid $white-smoke;
-}
-
-.grey-text {
-  font-family: $f-main;
-  color: $dusty-gray;
 }

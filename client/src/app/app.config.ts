@@ -19,6 +19,6 @@ export const CONFIG = {
   infoMessages: {
     itemNotFound: 'Item not found'
   },
-  dateFormat: 'd MMM y',
+  dateFormat: 'dd.mm.yyyy',
   timeFormat: 'hh:mm'
 };

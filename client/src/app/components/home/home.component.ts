@@ -10,6 +10,9 @@ import { HomeService } from '../../services/home.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+  response;
+  toggleLink = false;
+
   protected destroyedSubject = new Subject<void>();
 
   constructor(
@@ -29,8 +32,22 @@ export class HomeComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe(response => {
-        console.log(response);
+        this.response = response;
       });
+  }
+
+  // get employees(): any[] {
+    // return (this.response.results || [])
+    //   .filter(modelId => this.response.references[modelId].ObjectClass === ObjectClass.Employee)
+    //   .map(modelId => this.response.references[modelId]) as Employee[];
+  // }
+
+  get founders(): any[] {
+    return this.response.oCommonInfoBot.beneficiaries;
+  }
+
+  onSort(event): void {
+    const sortPropDir = event.sorts[ 0 ];
   }
 
   ngOnDestroy(): void {

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 6 10" width="6px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-817.000000, -1016.000000)" fill="#333">
+            <g id="Group-5" transform="translate(614.000000, 1012.000000)">
+                <g id="arrow-right" transform="translate(203.000000, 4.000000)">
+                    <polygon points="0.43359375 8.8515625 3.87890625 5.40625 0.43359375 1.9609375 1.50585938 0.90625 6.00585938 5.40625 1.50585938 9.90625"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

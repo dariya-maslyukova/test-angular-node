@@ -1,0 +1,28 @@
+.code {
+  font-style: italic;
+  color: $silver;
+  margin: 20px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.toggle-link {
+
+  img {
+    display: inline-block;
+    transform: rotate(90deg);
+    margin-left: 10px;
+    transition: 200ms ease-out;
+  }
+
+  &--open {
+
+    img {
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.propositions {
+  border: 1px solid;
+}
