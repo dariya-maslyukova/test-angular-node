@@ -82,25 +82,56 @@
     <span class="propositions__title">Публічні пропозиції</span>
     <img src="assets/images/arrow_right.svg" alt="">
   </section>
-  <table class="app-table app-table--primary" *ngIf="toggleLinkProp">
-    <tr>
-      <th>Ім'я/назва особи, яка здійснює публічну пропозицію</th>
-      <th>Дата початку публічної пропозиції</th>
-      <th>Дата закінчення публічної пропозиції</th>
-      <th>Цінні папери</th>
-      <th>Статус пропозиції</th>
-    </tr>
-    <tr *ngFor="let proposition of propositions">
-      <td><span *ngIf="proposition.sNameOfferent">{{ proposition.sNameOfferent.value }}</span></td>
-      <td><span
-        *ngIf="proposition.sDateBeginPublicOffering">{{ proposition.sDateBeginPublicOffering.value | dateFormat }}</span>
-      </td>
-      <td><span
-        *ngIf="proposition.sDateEndPublicOffering">{{ proposition.sDateEndPublicOffering.value | dateFormat }}</span>
-      </td>
-      <td><span *ngIf="proposition.oDictionary_TypeStockPaper">{{ proposition.oDictionary_TypeStockPaper.value }}</span>
-      </td>
-      <td><span *ngIf="proposition.aoListEvents">{{ proposition.aoListEvents.value.sName }}</span></td>
-    </tr>
-  </table>
+
+  <div *ngIf="toggleLinkProp">
+    <ngx-datatable
+      [rows]="propositions"
+      [rowHeight]="'auto'"
+      [headerHeight]="'auto'"
+      [footerHeight]="0"
+      [columnMode]="'flex'"
+    >
+      <ngx-datatable-column
+        name="Ім'я/назва особи, яка здійснює публічну пропозицію"
+        prop="sNameOfferent.value"
+        [resizeable]="false"
+        [flexGrow]="2"
+      >
+      </ngx-datatable-column>
+      <ngx-datatable-column
+        name="Дата початку публічної пропозиції"
+        prop="sDateBeginPublicOffering.value"
+        [resizeable]="false"
+        [flexGrow]="1"
+      >
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value | dateFormat}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column
+        name="Дата закінчення публічної пропозиції"
+        prop="sDateEndPublicOffering.value"
+        [resizeable]="false"
+        [flexGrow]="1"
+      >
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value | dateFormat}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column
+        name="Цінні папери"
+        prop="oDictionary_TypeStockPaper.value"
+        [resizeable]="false"
+        [flexGrow]="1"
+      >
+      </ngx-datatable-column>
+      <ngx-datatable-column
+        name="Статус пропозиції"
+        prop="aoListEvents.value.sName"
+        [resizeable]="false"
+        [flexGrow]="1"
+      >
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
 </div>
