@@ -11,7 +11,7 @@ import { HomeService } from '../../services/home.service';
 export class HomeComponent implements OnInit, OnDestroy {
 
   response;
-  propositions;
+  propositions = [];
   toggleLink = false;
   toggleLinkProp = false;
 

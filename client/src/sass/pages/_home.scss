@@ -36,9 +36,14 @@
   }
 
   &--open {
+    border-bottom: 0;
 
     img {
       transform: rotate(-90deg);
+    }
+
+    .propositions__title {
+      color: $dodger-blue;
     }
   }
 }

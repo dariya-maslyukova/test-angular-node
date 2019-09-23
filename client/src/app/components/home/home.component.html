@@ -79,15 +79,28 @@
            *ngIf="isPublicOffering()"
            (click)="toggleLinkProp = !toggleLinkProp"
            [ngClass]="{'propositions--open' : toggleLinkProp}">
-    <span>Публічні пропозиції</span>
+    <span class="propositions__title">Публічні пропозиції</span>
     <img src="assets/images/arrow_right.svg" alt="">
   </section>
-  <table class="app-table">
+  <table class="app-table app-table--primary" *ngIf="toggleLinkProp">
     <tr>
       <th>Ім'я/назва особи, яка здійснює публічну пропозицію</th>
       <th>Дата початку публічної пропозиції</th>
       <th>Дата закінчення публічної пропозиції</th>
       <th>Цінні папери</th>
+      <th>Статус пропозиції</th>
+    </tr>
+    <tr *ngFor="let proposition of propositions">
+      <td><span *ngIf="proposition.sNameOfferent">{{ proposition.sNameOfferent.value }}</span></td>
+      <td><span
+        *ngIf="proposition.sDateBeginPublicOffering">{{ proposition.sDateBeginPublicOffering.value | dateFormat }}</span>
+      </td>
+      <td><span
+        *ngIf="proposition.sDateEndPublicOffering">{{ proposition.sDateEndPublicOffering.value | dateFormat }}</span>
+      </td>
+      <td><span *ngIf="proposition.oDictionary_TypeStockPaper">{{ proposition.oDictionary_TypeStockPaper.value }}</span>
+      </td>
+      <td><span *ngIf="proposition.aoListEvents">{{ proposition.aoListEvents.value.sName }}</span></td>
     </tr>
   </table>
 </div>

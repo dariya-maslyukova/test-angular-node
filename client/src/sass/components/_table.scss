@@ -13,11 +13,22 @@
   th, td {
     border-bottom: 1px solid $alto;
     padding: 10px 20px;
-    line-height: 21px;
+    line-height: 18px;
 
     &.color-cell {
       background: $alabaster;
       border-bottom: 0;
+    }
+  }
+
+  &--primary {
+    border-top: 0;
+
+    th {
+      font-size: 14px;
+      font-weight: bold;
+      background: $white-smoke;
+      border: 0;
     }
   }
 }
