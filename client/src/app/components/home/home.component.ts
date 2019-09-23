@@ -11,7 +11,9 @@ import { HomeService } from '../../services/home.service';
 export class HomeComponent implements OnInit, OnDestroy {
 
   response;
+  propositions;
   toggleLink = false;
+  toggleLinkProp = false;
 
   protected destroyedSubject = new Subject<void>();
 
@@ -34,20 +36,34 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(response => {
         this.response = response;
       });
-  }
 
-  // get employees(): any[] {
-    // return (this.response.results || [])
-    //   .filter(modelId => this.response.references[modelId].ObjectClass === ObjectClass.Employee)
-    //   .map(modelId => this.response.references[modelId]) as Employee[];
-  // }
+    if (this.isPublicOffering()) {
+      this.hs
+        .getPropositionsById('01130549')
+        .pipe(
+          takeUntil(this.destroyedSubject),
+          finalize(() => {
+            this.cdr.markForCheck();
+          })
+        )
+        .subscribe(response => {
+          this.propositions = response;
+        });
+    }
+  }
 
   get founders(): any[] {
     return this.response.oCommonInfoBot.beneficiaries;
   }
 
+  isPublicOffering() {
+    const publ = this.response.aListRegistry.filter(res => res.sID_Registry === 'PublicOffering');
+
+    return publ.length > 0;
+  }
+
   onSort(event): void {
-    const sortPropDir = event.sorts[ 0 ];
+    const sortPropDir = event.sorts[0];
   }
 
   ngOnDestroy(): void {

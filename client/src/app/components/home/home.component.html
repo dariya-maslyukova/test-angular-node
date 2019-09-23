@@ -75,8 +75,19 @@
     </tr>
   </table>
 
-  <section class="propositions">
+  <section class="propositions"
+           *ngIf="isPublicOffering()"
+           (click)="toggleLinkProp = !toggleLinkProp"
+           [ngClass]="{'propositions--open' : toggleLinkProp}">
     <span>Публічні пропозиції</span>
     <img src="assets/images/arrow_right.svg" alt="">
   </section>
+  <table class="app-table">
+    <tr>
+      <th>Ім'я/назва особи, яка здійснює публічну пропозицію</th>
+      <th>Дата початку публічної пропозиції</th>
+      <th>Дата закінчення публічної пропозиції</th>
+      <th>Цінні папери</th>
+    </tr>
+  </table>
 </div>

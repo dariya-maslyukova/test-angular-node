@@ -1,6 +1,7 @@
 export const CONFIG = {
   apiUrls: {
-    Home: '/things'
+    Home: '/things',
+    Propositions: '/things/propositions'
   },
   mediaBreakpoints: {
     desktop: 1440,
